@@ -17,6 +17,7 @@ export default function Home() {
   const [cardYear, setCardYear] = useState("0");
   const [cvv, setCvv] = useState("000");
   const [cardNumError, setCardNumError] = useState(false)
+  const [isComplete, setIsComplete]= useState(false)
   const isZero = cardNumber === '0' || ''
   const isError = name === ''
 
@@ -41,22 +42,8 @@ export default function Home() {
       <Flex  w={{sm:"100%",lg:'700px'}} h={{sm:"30%",lg:"100%"}} bgColor="#21092F">
         <Image src="/images/Group 10.png"  w="683px"></Image>
       </Flex>
-      <Box w='500px' h='300px' boxShadow='xl' p='6' rounded='md'  ml={{sm:10,lg:250}} mt={{sm:-100,lg:100}} pos={{sm:"relative" ,lg:"absolute" }} backgroundImage="url('/images/Oval Copy 2.png')" backgroundRepeat="no-repeat">
-        <Flex direction="row"> 
-         <Box m="20px"bgColor="#DEDDDF" w="40px" h="40px" borderRadius="50%"/>
-         <Box mt="27px" border=" 2px solid #DEDDDF" w="20px" h="20px" borderRadius="50%"/>
-        </Flex>
-         
-      
-        <Text pl={5}  mt={6} color="white" fontSize="4xl" fontWeight="500">{isZero? setCardNumber("0000 0000 0000 0000") : cardNumber}</Text>
-         <Flex direction="row" justify="space-between"> 
-          <Text p={5}  mt={5}color="white" fontSize="md" fontWeight="500">{isError? setName("MARY TESS"): name}</Text>
-          <Text p={5}  mt={5}color="white" fontSize="md" fontWeight="500">{cardMonth}/{cardYear}</Text>
-         </Flex>
-        
-        
-      </Box>
-      <Box w='500px' h='300px'boxShadow='xl' ml={{sm:200, lg:350}} mb={{sm:100, lg:500}} pos={{sm:"inherit", lg:"absolute"}} borderRadius="10px" bgColor="#D2D3D9">
+
+      <Box w={{sm:'450px',lg:'500px'}} h={{sm:"250px", lg:"300px"}}  boxShadow='xl' ml={{sm:200, lg:350}} mt={{sm:20, lg:500}} pos="absolute" borderRadius="10px" bgColor="#D2D3D9">
         <Box mt={10} bgColor="#2F2F2F" w="100%" h="50px" />
 
         <Box h="45px" bgColor="#ADB5BE" rounded="sm"  m={10}   >
@@ -64,6 +51,22 @@ export default function Home() {
         </Box>
     
       </Box>
+      <Box w={{sm:'450px',lg:'500px'}} h={{sm:"250px", lg:"300px"}} boxShadow='xl' p='6' rounded='md'  ml={{sm:10,lg:250}} mt={{sm:290,lg:100}} pos={{sm:"absolute" ,lg:"absolute" }} backgroundImage="url('/images/Oval Copy 2.png')" backgroundRepeat="no-repeat">
+        <Flex direction="row"> 
+         <Box m="20px"bgColor="#DEDDDF" w="40px" h="40px" borderRadius="50%"/>
+         <Box mt="27px" border=" 2px solid #DEDDDF" w="20px" h="20px" borderRadius="50%"/>
+        </Flex>
+         
+      
+        <Text pl={5}  mt={6} color="white" fontSize={{sm:"lg",lg:"4xl"}} fontWeight="500">{isZero? setCardNumber("0000 0000 0000 0000") : cardNumber}</Text>
+         <Flex direction="row" justify="space-between"> 
+          <Text p={5}  mt={5}color="white" fontSize="md" fontWeight="500">{isError? setName("MARY TESS"): name}</Text>
+          <Text p={5}  mt={5}color="white" fontSize="md" fontWeight="500">{cardMonth}/{cardYear}</Text>
+         </Flex>
+        
+        
+      </Box>
+     
 
       <Flex d="flex" direction="column" justify="center" m={{sm: 200, lg: 500}} >
       <FormControl isInvalid={isError}>
@@ -131,9 +134,10 @@ export default function Home() {
         )}
         
        </FormControl>
-       <Button mt={5} p={5}bgColor="#21092F" color="white" ><Link >Confirm</Link></Button>
+       <Button mt={5} p={5} bgColor="#21092F" color="white" >Confirm</Button>
       </Flex>
 
+      
      
     </Flex>
   )
